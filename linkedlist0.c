@@ -12,6 +12,7 @@ struct node
 
 //function prototypes - because functions are written after the main function
 void insertatthebeginning(struct node** head, int data);
+void insertattheend(struct node**,int data);
 void printlist(struct node* node);
 
 int main()
@@ -23,6 +24,10 @@ int main()
     insertatthebeginning(&head, 1);
     insertatthebeginning(&head, 2);
     insertatthebeginning(&head, 3);
+
+    insertattheend(&head,10);
+    insertattheend(&head,20);
+    insertattheend(&head,30);
 
     //print the linkedlist
     printlist(head);
@@ -56,12 +61,42 @@ void insertatthebeginning(struct node** head, int data)
 
 }
 
+void insertattheend(struct node ** head, int data)
+{
+    // Allocate memory for the new node
+    struct node* newnode1=(struct node*)malloc(sizeof(struct node));
+    newnode1->data=data;
+    newnode1->next=NULL; // Initialize the next pointer of the new node to NULL
+    // If the list is empty, make the new node the head
+    if (*head == NULL)
+    {
+        *head = newnode1;
+        return;
+    }
+    
+    // Traverse to the end of the list
+    struct node* temp = *head;
+    while(temp->next != NULL)
+    {
+        temp=temp->next;
+    }
+    // Add the new node at the end of the list
+    temp->next = newnode1;
+
+
+}
+
+
+
 void printlist(struct node* node)
 {
     while(node!=NULL)
     {
-        printf("%d\n", node->data);
-        node = node ->next;
+       while (node != NULL) {
+        printf("%d ", node->data);
+        node = node->next;
+        }
     }
+
     printf("\n");
 }
