@@ -1,3 +1,5 @@
+// A basic program to add a node at the beginning of a linkedlist and to print the list. 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,7 +10,7 @@ struct node
     struct node* next;
 };
 
-
+//function prototypes - because functions are written after the main function
 void insertatthebeginning(struct node** head, int data);
 void printlist(struct node* node);
 
@@ -28,11 +30,12 @@ int main()
 }
 
 //inserts a new node at the beginning of the list
-
+//Function definition
 void insertatthebeginning(struct node** head, int data)
 {
     //allocate memory for the new node
-    struct node* newnode = (struct node*) malloc(sizeof(struct node));
+    struct node* newnode = (struct node*) malloc(sizeof(struct node));/*Since the pointer variable newnode is of the type (struct node), 
+    it will have both next and data as its properties*/
     newnode ->data = data;
 
     //make the new node point to the current head
@@ -40,6 +43,16 @@ void insertatthebeginning(struct node** head, int data)
 
     //update the head pointer to point to the new node
     *head = newnode;
+
+    /*A double pointer is used in the function argument because:
+    If you use a single pointer (struct node* head), the function would receive a copy of the head pointer.
+    Modifying this copy would not affect the original head pointer in the calling function, so the changes would be lost 
+    once the function returns.
+
+    Double Pointer Scenario:
+    By using a double pointer (struct node** head), you pass the address of the head pointer. 
+    This allows the function to modify the original head pointer, making sure the changes persist after the function returns.
+    */
 
 }
 
