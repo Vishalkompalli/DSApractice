@@ -1,4 +1,4 @@
-// A basic program to add a node at the beginning of a linkedlist and to print the list. 
+// A basic program to add a node at the beginning of a linkedlist, at the end of the linkedlist and to print the list. 
 
 #include <stdio.h>
 #include <stdlib.h>
