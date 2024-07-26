@@ -92,10 +92,10 @@ void printlist(struct node* node)
 {
     while(node!=NULL)
     {
-       while (node != NULL) {
+       
         printf("%d ", node->data);
         node = node->next;
-        }
+        
     }
 
     printf("\n");
