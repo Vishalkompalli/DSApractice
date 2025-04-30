@@ -51,7 +51,7 @@ int pop(struct Stack* stack)
 
 int peek(struct Stack* stack)
 {
-    if(isEmpty==1)
+    if(isEmpty(stack)==1)
     {
         printf("The stack is empty\n");
         return -1;
